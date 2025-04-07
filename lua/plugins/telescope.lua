@@ -33,7 +33,7 @@ return {
       vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Telescope find Git files' })
       vim.keymap.set('n', '<leader>w', function() builtin.grep_string({ search = vim.fn.expand('<cword>') }) end, { desc = 'Telescope find Git files' })
       vim.keymap.set('n', '<leader><leader>', builtin.builtin, { desc = 'Telescope builtin' })
-      vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Telescope live grep' })
+      -- vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>b', function() builtin.buffers({ sort_lastused = true, ignore_current_buffer = true }) end, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>?', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Telescope references' })
@@ -92,4 +92,15 @@ return {
   --     vim.keymap.set('n', '<leader>q', '<cmd>Telescope cmdline<CR>', { desc = 'Telescope cmdline' })
   --   end,
   -- },
+  {
+    'nvim-telescope/telescope-live-grep-args.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+      local telescope = require('telescope')
+
+      telescope.load_extension('live_grep_args')
+
+      vim.keymap.set('n', '<leader>/', telescope.extensions.live_grep_args.live_grep_args, { desc = 'Live grep (args)' })
+    end,
+  },
 }
