@@ -18,13 +18,11 @@
      config = function()
        require('kanagawa').setup({
          theme = 'wave', -- dragon, lotus, wave
-         background = {
-           dark = 'wave',
-           light = 'lotus',
-         },
+         -- background = {
+         --   dark = 'wave',
+         --   light = 'lotus',
+         -- },
        })
-
-       vim.cmd.colorscheme 'kanagawa'
      end,
    }
 -- end

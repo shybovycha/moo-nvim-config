@@ -133,5 +133,7 @@ require('lualine').setup({
   extensions = {},
 })
 
-vim.cmd.colorscheme 'kanagawa-wave'
-
+vim.schedule(function ()
+  vim.cmd.colorscheme('kanagawa-wave')
+  vim.api.nvim_set_option('background', 'dark')
+end)
